@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Dataset Full Documentation</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f4f7f7;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            vertical-align: top;
+        }
+
+        th {
+            background: #2e7d32;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f1f1f1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e0f2f1;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🌾 Crop Health & Yield Dataset - Full Documentation</h1>
+
+<table>
+
+<tr>
+<th>Column</th>
+<th>Full Definition</th>
+</tr>
+
+<tr>
+<td>High_Resolution_RGB</td>
+<td>
+Binary feature (Yes/No)<br>
+<b>Meaning:</b> High quality RGB image available or not<br>
+<b>Type:</b> Categorical (Binary)<br>
+<b>Unit:</b> None<br>
+<b>ML Role:</b> Feature (Image availability)<br>
+</td>
+</tr>
+
+<tr>
+<td>Multispectral_Images</td>
+<td>
+Binary feature (Yes/No)<br>
+<b>Meaning:</b> Satellite multispectral data available<br>
+<b>Type:</b> Binary<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Thermal_Images</td>
+<td>
+Binary feature (Yes/No)<br>
+<b>Meaning:</b> Heat map images available<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Temporal_Images</td>
+<td>
+Binary feature (Yes/No)<br>
+<b>Meaning:</b> Time series images available<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Spatial_Resolution</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Image detail level<br>
+<b>Unit:</b> meters/pixel (approx)<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>GPS_Coordinates</td>
+<td>
+<b>Type:</b> Geospatial<br>
+<b>Meaning:</b> Field location<br>
+<b>ML Role:</b> Feature (location encoding)
+</td>
+</tr>
+
+<tr>
+<td>Field_Boundaries</td>
+<td>
+<b>Type:</b> Spatial geometry<br>
+<b>Meaning:</b> Field shape/area boundary<br>
+<b>ML Role:</b> Feature (geo segmentation)
+</td>
+</tr>
+
+<tr>
+<td>Elevation_Data</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Height above sea level<br>
+<b>Unit:</b> meters<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Canopy_Coverage</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Crop canopy % coverage<br>
+<b>Unit:</b> %<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>NDVI</td>
+<td>
+<b>Type:</b> Index<br>
+<b>Meaning:</b> Vegetation health (-1 to 1)<br>
+<b>ML Role:</b> Feature (very important)
+</td>
+</tr>
+
+<tr>
+<td>SAVI</td>
+<td>
+<b>Type:</b> Index<br>
+<b>Meaning:</b> Soil adjusted vegetation index<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Chlorophyll_Content</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Plant greenness indicator<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Leaf_Area_Index</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Leaf density per area<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Crop_Stress_Indicator</td>
+<td>
+<b>Type:</b> Score<br>
+<b>Meaning:</b> Stress level in crop<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Temperature</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Unit:</b> °C<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Humidity</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Unit:</b> %<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Rainfall</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Unit:</b> mm<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Wind Speed</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Unit:</b> 0–50 scale<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Soil_Moisture</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Unit:</b> %<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Soil_pH</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Acidity/alkalinity<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Organic_Matter</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Meaning:</b> Soil fertility index (scaled)<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Pest_Hotspots</td>
+<td>
+<b>Type:</b> Categorical (0–9)<br>
+<b>Meaning:</b> Pest intensity level<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Weed_Coverage</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Range:</b> 0–10<br>
+<b>Meaning:</b> Weed infestation score<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Pest_Damage</td>
+<td>
+<b>Type:</b> Categorical<br>
+<b>Meaning:</b> Damage level by pests<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Crop_Growth_Stage</td>
+<td>
+<b>Type:</b> Categorical<br>
+<b>Meaning:</b> Growth phase of crop<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Crop_Type</td>
+<td>
+<b>Type:</b> Categorical<br>
+<b>Meaning:</b> Type of crop<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Bounding_Boxes</td>
+<td>
+<b>Type:</b> Categorical (0–9)<br>
+<b>Meaning:</b> Object detection labels<br>
+<b>ML Role:</b> Computer Vision
+</td>
+</tr>
+
+<tr>
+<td>Water_Flow</td>
+<td>
+<b>Type:</b> Numeric<br>
+<b>Range:</b> 0–50<br>
+<b>Meaning:</b> Irrigation flow rate<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td>Drainage_Features</td>
+<td>
+<b>Type:</b> Binary (0/1)<br>
+<b>Meaning:</b> Water drainage quality<br>
+<b>ML Role:</b> Feature
+</td>
+</tr>
+
+<tr>
+<td><b>Crop_Health_Label</b></td>
+<td>
+<b>Type:</b> Classification Target<br>
+<b>Meaning:</b> Healthy / Diseased crop status<br>
+<b>ML Role:</b> Target
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
