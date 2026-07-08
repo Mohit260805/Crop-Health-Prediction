@@ -161,37 +161,17 @@ Classes:
 Crop-Health-Prediction/
 │
 ├── app.py
+├── agriculture.ipynb
+├── crop_diseases.ipynb
 ├── model.pkl
 ├── crop_disease_cnn.keras
 ├── requirements.txt
-├── README.md
-│
-├── notebooks/
-│   ├── agriculture.ipynb
-│   └── crop_diseases.ipynb
-│
-├── dataset/
-│
-├── assets/
-│
-└── images/
+└── README.md
 ```
 
 ---
 
 # 🚀 Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/yourusername/Crop-Health-Prediction.git
-```
-
-Go to project folder
-
-```bash
-cd Crop-Health-Prediction
-```
 
 Install dependencies
 
