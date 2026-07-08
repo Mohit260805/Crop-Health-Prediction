@@ -4,4 +4,4 @@ numpy
 Pillow
 joblib
 scikit-learn
-tensorflow==2.15.0
+tensorflow
