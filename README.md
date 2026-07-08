@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Classifier-green.svg)
-![Streamlit]([https://crop-health-prediction-kjx6jw4nbw8z3rxaihuxue.streamlit.app/])
+![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 📖 Overview
