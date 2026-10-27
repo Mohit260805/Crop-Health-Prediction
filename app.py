@@ -151,67 +151,78 @@ with tab2:
         "Upload Leaf Image",
         type=["jpg", "jpeg", "png"]
     )
+    col1, col2 = st.columns(2)
+    with col1:
+        camera_file = st.camera_input(
+            "Capture Image"
+        )
+        st.markdown("""
+            <style>
+            [data-testid="stCameraInput"] {
+                max-width: 400px;
+                max-height: 400px;
+            }
+            </style>
+        """, unsafe_allow_html=True)
+    with col2:
 
-    camera_file = st.camera_input(
-        "Capture Image"
-    )
+        image_file = uploaded_file if uploaded_file is not None else camera_file
 
-    image_file = uploaded_file if uploaded_file is not None else camera_file
+        if image_file is not None:
 
-    if image_file is not None:
+            image = Image.open(image_file).convert("RGB")
+            st.write("")
+            st.write("")
+            st.image(
+                image,
+                caption="Uploaded Image",
+                width=300
+            )
 
-        image = Image.open(image_file).convert("RGB")
+    if st.button(
+        "🔍 Predict Disease from Image",
+        key="image_predict"
+    ):
 
-        st.image(
-            image,
-            caption="Uploaded Image",
-            use_container_width=True
+        img = image.resize((224,224))
+
+        img_array = np.array(img)
+
+        img_array = img_array.astype("float32") / 255.0
+
+        img_array = np.expand_dims(
+            img_array,
+            axis=0
         )
 
-        if st.button(
-            "🔍 Predict Disease from Image",
-            key="image_predict"
-        ):
+        prediction = cnn_model.predict(img_array)
 
-            img = image.resize((224,224))
+        predicted_index = np.argmax(prediction)
 
-            img_array = np.array(img)
+        predicted_class = CLASS_NAMES[predicted_index]
 
-            img_array = img_array.astype("float32") / 255.0
+        confidence = np.max(prediction) * 100
 
-            img_array = np.expand_dims(
-                img_array,
-                axis=0
+        st.success(
+            f"Prediction : {predicted_class}"
+        )
+
+        st.info(
+            f"Confidence : {confidence:.2f}%"
+        )
+
+        if predicted_class == "Healthy":
+            st.balloons()
+
+        elif predicted_class == "Rust":
+            st.error(
+                "⚠ Rust disease detected. Consider fungicide treatment."
             )
 
-            prediction = cnn_model.predict(img_array)
-
-            predicted_index = np.argmax(prediction)
-
-            predicted_class = CLASS_NAMES[predicted_index]
-
-            confidence = np.max(prediction) * 100
-
-            st.success(
-                f"Prediction : {predicted_class}"
+        elif predicted_class == "Powdery":
+            st.warning(
+                "⚠ Powdery disease detected. Monitor the crop carefully."
             )
-
-            st.info(
-                f"Confidence : {confidence:.2f}%"
-            )
-
-            if predicted_class == "Healthy":
-                st.balloons()
-
-            elif predicted_class == "Rust":
-                st.error(
-                    "⚠ Rust disease detected. Consider fungicide treatment."
-                )
-
-            elif predicted_class == "Powdery":
-                st.warning(
-                    "⚠ Powdery disease detected. Monitor the crop carefully."
-                )
 
 # ======================================================
 # FEATURE PREDICTION TAB
